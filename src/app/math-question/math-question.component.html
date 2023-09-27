@@ -1,0 +1,15 @@
+<div class="question-container">
+  <h1>
+    Math Question: {{ firstNumber }} {{ operator }} {{ secondNumber }} = ?
+  </h1>
+  <div class="button-container">
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      *ngFor="let choice of choices"
+      (click)="checkAnswer(choice)"
+    >
+      {{ choice }}
+    </button>
+  </div>
+</div>
