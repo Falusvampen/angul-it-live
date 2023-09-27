@@ -1,36 +1,36 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+import { NgModule } from '@angular/core';
+import { RecaptchaModule } from 'ng-recaptcha';
 import { FormsModule } from '@angular/forms';
-import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponentComponent } from './home-component/home-component.component';
 import { CaptchaComponentComponent } from './captcha-component/captcha-component.component';
+import { HomeComponentComponent } from './home-component/home-component.component';
 import { ResultComponentComponent } from './result-component/result-component.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaSettings } from 'ng-recaptcha';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponentComponent,
     CaptchaComponentComponent,
+    HomeComponentComponent,
     ResultComponentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     RecaptchaModule,
-    RecaptchaFormsModule,
     FormsModule,
+    AppRoutingModule,
+    RecaptchaFormsModule,
+
   ],
-  providers: [
-    {
+  providers: [{
     provide: RECAPTCHA_SETTINGS,
     useValue: {
       siteKey: environment.recaptcha.siteKey,
     } as RecaptchaSettings,
-  },
-  ],
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
