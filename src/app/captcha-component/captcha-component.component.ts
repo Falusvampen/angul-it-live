@@ -20,6 +20,7 @@ export class CaptchaComponentComponent {
   }
 
   public send(form: NgForm): void {
+
     if (form.invalid) {
       for (const control of Object.keys(form.controls)) {
         form.controls[control].markAsTouched();

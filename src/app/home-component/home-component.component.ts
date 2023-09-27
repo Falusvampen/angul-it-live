@@ -5,17 +5,31 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-component.component.html',
   styleUrls: ['./home-component.component.scss']
 })
-export class HomeComponentComponent implements OnInit{
+export class HomeComponentComponent implements OnInit {
 
-  currentStage = 1; // Initialize to stage 1
+  currentStage = 1; 
 
   constructor() { }
 
   ngOnInit(): void {
+    
+    const savedStage = sessionStorage.getItem('currentStage');
+
+    
+    if (savedStage !== null) {
+      this.currentStage = Number(savedStage);  
+    }
   }
 
   onCaptchaSuccess(): void {
-    this.currentStage++; // Increment to the next stage
+
+    this.currentStage++;
+
+    
+    sessionStorage.setItem('currentStage', this.currentStage.toString());
+
+    
+    console.log('Current stage stored:', this.currentStage);
   }
 
 }
