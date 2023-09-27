@@ -9,13 +9,17 @@ import { ResultComponentComponent } from './result-component/result-component.co
 import { AppRoutingModule } from './app-routing.module';
 import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaSettings } from 'ng-recaptcha';
 import { environment } from '../environments/environment';
+import { MathQuestionComponent } from './math-question/math-question.component';
+import { RandomQuestionComponent } from './random-question/random-question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CaptchaComponentComponent,
     HomeComponentComponent,
-    ResultComponentComponent
+    ResultComponentComponent,
+    MathQuestionComponent,
+    RandomQuestionComponent
   ],
   imports: [
     BrowserModule,
