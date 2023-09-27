@@ -1,48 +1,76 @@
 <div class="container text-center">
-  <h1 class="display-4 mt-5">Welcome to the ReCaptcha Challenge</h1>
+  <h1 class="display-4 mt-5">Welcome to Falusvampens ReCaptcha Challenge</h1>
 
-  <!-- Stage 1 -->
-  <div
-    *ngIf="currentStage === 1"
-    class="d-flex justify-content-center align-items-center"
-    style="height: 50vh"
-  >
-    <h2 class="mb-4">Stage 1: Prove Your Humanity</h2>
-    <app-captcha-component
-      (success)="onCaptchaSuccess()"
-    ></app-captcha-component>
+  <div class="completed-levels">
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      style="margin: 2px"
+      *ngFor="let stage of completedStages"
+      (click)="navigateToStage(stage)"
+    >
+      Level {{ stage }}
+    </button>
   </div>
-
-  <!-- Stage 2 -->
   <div
-    *ngIf="currentStage === 2"
-    class="d-flex justify-content-center align-items-center"
+    class="stage-wrapper d-flex justify-content-center align-items-center"
     style="height: 50vh"
   >
-    <h2 class="mb-4">Stage 2: Are You Still Human?</h2>
-    <app-captcha-component
-      (success)="onCaptchaSuccess()"
-    ></app-captcha-component>
-  </div>
+    <!-- Stage 1: CAPTCHA -->
+    <div
+      *ngIf="currentStage === 1"
+      class="d-flex justify-content-center align-items-center"
+      style="height: 50vh"
+    >
+      <h2 class="mb-4">Stage 1: Prove Your Humanity</h2>
+      <app-captcha-component
+        (success)="onCaptchaSuccess()"
+      ></app-captcha-component>
+    </div>
 
-  <!-- Stage 3 -->
-  <div
-    *ngIf="currentStage === 3"
-    class="d-flex justify-content-center align-items-center"
-    style="height: 50vh"
-  >
-    <h2 class="mb-4">Stage 3: The Final Test</h2>
-    <app-captcha-component
-      (success)="onCaptchaSuccess()"
-    ></app-captcha-component>
-  </div>
+    <!-- Stage 2: Math Question -->
+    <div
+      *ngIf="currentStage === 2"
+      class="d-flex justify-content-center align-items-center"
+      style="height: 50vh"
+    >
+      <h2 class="mb-4">Stage 2: Solve this Math Problem</h2>
+      <app-math-question
+        (questionPassed)="onMathQuestionPassed()"
+      ></app-math-question>
+    </div>
 
-  <!-- Completed all stages -->
-  <div
-    *ngIf="currentStage > 3"
-    class="d-flex justify-content-center align-items-center"
-    style="height: 50vh"
-  >
-    <app-result-component></app-result-component>
+    <!-- Stage 3: CAPTCHA Again -->
+    <div
+      *ngIf="currentStage === 3"
+      class="d-flex justify-content-center align-items-center"
+      style="height: 50vh"
+    >
+      <h2 class="mb-4">Stage 3: Are You Still Human?</h2>
+      <app-captcha-component
+        (success)="onCaptchaSuccess()"
+      ></app-captcha-component>
+    </div>
+
+    <!-- Stage 4: Final Stage with a random question-->
+    <div
+      *ngIf="currentStage === 4"
+      class="d-flex justify-content-center align-items-center"
+      style="height: 50vh"
+    >
+      <h2 class="mb-4">Stage 4: Answer this Question</h2>
+      <app-random-question
+        (questionPassed)="onRandomQuestionPassed()"
+      ></app-random-question>
+    </div>
+
+    <!-- Completed all stages -->
+    <div
+      *ngIf="currentStage > 4"
+      class="d-flex justify-content-center align-items-center"
+      style="height: 50vh"
+    >
+      <app-result-component></app-result-component>
+    </div>
   </div>
 </div>
