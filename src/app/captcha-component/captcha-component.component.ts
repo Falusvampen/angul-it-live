@@ -1,8 +1,6 @@
 import { Component , Output, EventEmitter} from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-captcha-component',
   templateUrl: './captcha-component.component.html',
