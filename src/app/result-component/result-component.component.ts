@@ -13,6 +13,7 @@ export class ResultComponentComponent {
   restartChallenge(): void {
     this.homeComponent.currentStage = 1;
     sessionStorage.setItem('currentStage', '1');
+    this.homeComponent.completedStages = [1];
   }
 
 }
