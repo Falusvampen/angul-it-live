@@ -1,0 +1,14 @@
+<div class="question-container">
+  <h3>{{ currentQuestion?.question }}</h3>
+  <div class="answer-buttons">
+    <button
+      type="button"
+      class="btn btn-sm btn-primary"
+      style="margin: 2px"
+      *ngFor="let choice of currentQuestion?.choices"
+      (click)="onAnswerSelected(choice)"
+    >
+      {{ choice }}
+    </button>
+  </div>
+</div>
