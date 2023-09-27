@@ -85,4 +85,4 @@ We welcome contributions from everyone.
 4. Push to the Branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-3 Hour project crafted with ❤️ by [Falusvampen](https://github.com/Falusvampen) at grit:lab 2023-09-27
+Crafted with ❤️ by [Falusvampen](https://github.com/Falusvampen) at grit:lab 2023-09-27
