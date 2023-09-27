@@ -1,1 +1,48 @@
-<p>home-component works!</p>
+<div class="container text-center">
+  <h1 class="display-4 mt-5">Welcome to the ReCaptcha Challenge</h1>
+
+  <!-- Stage 1 -->
+  <div
+    *ngIf="currentStage === 1"
+    class="d-flex justify-content-center align-items-center"
+    style="height: 50vh"
+  >
+    <h2 class="mb-4">Stage 1: Prove Your Humanity</h2>
+    <app-captcha-component
+      (success)="onCaptchaSuccess()"
+    ></app-captcha-component>
+  </div>
+
+  <!-- Stage 2 -->
+  <div
+    *ngIf="currentStage === 2"
+    class="d-flex justify-content-center align-items-center"
+    style="height: 50vh"
+  >
+    <h2 class="mb-4">Stage 2: Are You Still Human?</h2>
+    <app-captcha-component
+      (success)="onCaptchaSuccess()"
+    ></app-captcha-component>
+  </div>
+
+  <!-- Stage 3 -->
+  <div
+    *ngIf="currentStage === 3"
+    class="d-flex justify-content-center align-items-center"
+    style="height: 50vh"
+  >
+    <h2 class="mb-4">Stage 3: The Final Test</h2>
+    <app-captcha-component
+      (success)="onCaptchaSuccess()"
+    ></app-captcha-component>
+  </div>
+
+  <!-- Completed all stages -->
+  <div
+    *ngIf="currentStage > 3"
+    class="d-flex justify-content-center align-items-center"
+    style="height: 50vh"
+  >
+    <h2 class="mb-4">Congratulations! You've Passed All Stages!</h2>
+  </div>
+</div>
